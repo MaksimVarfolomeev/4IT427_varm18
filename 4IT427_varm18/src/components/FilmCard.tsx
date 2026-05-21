@@ -1,4 +1,4 @@
-// src/components/FilmCard.tsx
+
 
 interface FilmCardProps {
   title: string;
@@ -18,7 +18,7 @@ function FilmCard({
   onToggleWatched,
 }: FilmCardProps) {
 
-  // BONUS: Hodnoceni od 1 do 10
+
   const isRatingValid = rating >= 1 && rating <= 10;
 
   return (
