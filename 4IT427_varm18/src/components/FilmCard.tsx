@@ -1,39 +1,26 @@
-
-
 interface FilmCardProps {
+  id: string;
   title: string;
   year: number;
   genre: string;
   rating: number;
   watched: boolean;
-  onToggleWatched: (title: string) => void;
+  onToggleWatched: (id: string) => void;
+  onRemove: (id: string) => void;
 }
 
-function FilmCard({
-  title,
-  year,
-  genre,
-  rating,
-  watched,
-  onToggleWatched,
-}: FilmCardProps) {
-
-
+function FilmCard({ id, title, year, genre, rating, watched, onToggleWatched, onRemove }: FilmCardProps) {
   const isRatingValid = rating >= 1 && rating <= 10;
 
   return (
     <div className="film-card">
       <h2>{title}</h2>
       <p>Rok: {year}</p>
-      <p>Žanr: {genre}</p>
+      <p>Žánr: {genre}</p>
       <p>Hodnocení: {isRatingValid ? rating : "Neplatné hodnocení"}</p>
-
-      {/* Conditional badge */}
       {watched && <span className="badge">✓ Zhlédnuto</span>}
-
-      <button onClick={() => onToggleWatched(title)}>
-        Změnit stav zhlédnutí
-      </button>
+      <button onClick={() => onToggleWatched(id)}>Změnit stav zhlédnutí</button>
+      <button onClick={() => onRemove(id)}>Odebrat</button>
     </div>
   );
 }

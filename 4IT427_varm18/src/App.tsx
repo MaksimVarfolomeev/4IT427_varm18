@@ -1,28 +1,28 @@
+import { useWatchlist } from './context/WatchlistContext';
 import FilmCard from './components/FilmCard';
-import useWatchlist from './hooks/useWatchlist';
-
-const initialFilms = [
-  { title: "Vykoupení z věznice Shawshank", year: 1994, genre: "Drama", rating: 9, watched: true },
-  { title: "Forrest Gump", year: 1994, genre: "Komedie", rating: 7, watched: false },
-  { title: "Sedm", year: 1995, genre: "Krimi", rating: 8, watched: false },
-];
+import AddFilmForm from './components/AddFilmForm';
 
 function App() {
-  const { films, toggleWatched, markAllAsWatched } = useWatchlist(initialFilms);
+  const { films, toggleWatched, removeFilm, markAllAsWatched } = useWatchlist();
+  const watchedCount = films.filter(f => f.watched).length;
 
   return (
     <div>
       <h1>Film Watchlist</h1>
+      <p>{watchedCount} / {films.length} zhlédnuto</p>
       <button onClick={markAllAsWatched}>Označit vše jako zhlédnuté</button>
+      <AddFilmForm />
       {films.map((film) => (
         <FilmCard
-          key={film.title}
+          key={film.id}
+          id={film.id}
           title={film.title}
           year={film.year}
           genre={film.genre}
           rating={film.rating}
           watched={film.watched}
           onToggleWatched={toggleWatched}
+          onRemove={removeFilm}
         />
       ))}
     </div>
