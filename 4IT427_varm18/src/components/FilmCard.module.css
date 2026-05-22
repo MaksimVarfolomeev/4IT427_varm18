@@ -1,7 +1,9 @@
 .card {
   background: var(--bg-card);
   border: 1.5px solid var(--border);
+  border-style: solid;
   border-radius: var(--radius);
+  border-color:#0a0909;
   padding: 24px;
   display: flex;
   flex-direction: column;
@@ -48,7 +50,7 @@
 .rating {
   display: inline-block;
   background: var(--accent);
-  color: #fff;
+  color: #0a0909;
   font-size: 0.78rem;
   font-weight: 800;
   letter-spacing: 0.06em;
