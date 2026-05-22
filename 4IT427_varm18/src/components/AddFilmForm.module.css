@@ -1,0 +1,89 @@
+.form {
+  background: var(--bg-card);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+}
+
+.formTitle {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 20px;
+}
+
+.fields {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.fieldFull {
+  grid-column: 1;
+}
+
+.input {
+  width: 100%;
+  background: var(--bg-input);
+  border: 1.5px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 0.88rem;
+  padding: 10px 14px;
+  transition: border-color 0.18s;
+  outline: none;
+  box-shadow: inset 0 2px 8px rgba(255, 255, 255, 0.04), 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.input::placeholder {
+  color: #555;
+}
+
+.input::placeholder {
+  color: var(--text-muted);
+}
+
+.input:focus {
+  border-color: var(--accent);
+}
+
+/* remove number input arrows */
+.input[type='number']::-webkit-inner-spin-button,
+.input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+.submit {
+  width: 100%;
+  background: transparent;
+  border: 1.5px solid #444;
+  color: var(--text-muted);
+  font-family: var(--font);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 13px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: border-color 0.18s, color 0.18s;
+}
+
+.submit:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+@media (max-width: 600px) {
+  .fields {
+    grid-template-columns: 1fr;
+  }
+
+  .fieldFull {
+    grid-column: 1;
+  }
+}

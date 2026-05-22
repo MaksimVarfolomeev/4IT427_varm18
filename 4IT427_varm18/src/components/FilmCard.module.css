@@ -1,0 +1,130 @@
+.card {
+  background: var(--bg-card);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  position: relative;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--accent);
+}
+
+.cardWatched {
+  background: var(--bg-card-watched);
+  border-color: var(--border-watched);
+}
+
+.cardWatched:hover {
+  border-color: #4caf50;
+}
+
+.title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+
+.meta {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+}
+
+.metaValue {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.rating {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  padding: 3px 10px;
+  border-radius: 4px;
+  margin-top: 2px;
+  width: fit-content;
+}
+
+.ratingInvalid {
+  background: #444;
+}
+
+.badge {
+  display: inline-block;
+  background: transparent;
+  border: 1.5px solid #4caf50;
+  color: #4caf50;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 4px;
+  width: fit-content;
+  margin-top: 4px;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 16px;
+}
+
+.btnToggle {
+  flex: 1;
+  background: transparent;
+  border: 1.5px solid #444;
+  color: var(--text-muted);
+  font-family: var(--font);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 10px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: border-color 0.18s, color 0.18s;
+}
+
+.btnToggle:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.btnToggle:hover {
+  background: var(--accent-hover);
+}
+
+.btnRemove {
+  background: transparent;
+  border: 1.5px solid #444;
+  color: var(--text-muted);
+  font-family: var(--font);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 10px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: border-color 0.18s, color 0.18s;
+}
+
+.btnRemove:hover {
+  border-color: #e53935;
+  color: #e53935;
+}

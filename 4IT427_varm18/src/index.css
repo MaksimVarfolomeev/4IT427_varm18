@@ -1,0 +1,34 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #0a0a0a;
+  --bg-card: #141414;
+  --bg-card-watched: #0f1a0f;
+  --bg-input: #1c1c1c;
+  --text: #ffffff;
+  --text-muted: #888888;
+  --accent: #ff6a00;
+  --accent-hover: #ff8c33;
+  --border: #2a2a2a;
+  --border-watched: #2d6a2d;
+  --shadow: 0 4px 24px rgba(255, 106, 0, 0.12);
+  --shadow-hover: 0 8px 32px rgba(255, 106, 0, 0.28);
+  --radius: 10px;
+  --font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+html {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--bg);
+}

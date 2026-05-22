@@ -1,0 +1,84 @@
+/* Stylingová metoda: CSS Modules */
+
+.wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 48px 24px 80px;
+}
+
+.header {
+  margin-bottom: 40px;
+}
+
+.title {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: var(--text);
+  line-height: 1;
+}
+
+.titleAccent {
+  color: var(--accent);
+}
+
+.subtitle {
+  margin-top: 10px;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+}
+
+.topBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.markAllBtn {
+  background: transparent;
+  border: 1.5px solid #444;
+  color: var(--text-muted);
+  font-family: var(--font);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: border-color 0.18s, color 0.18s;
+}
+
+.markAllBtn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 40px 0 32px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  align-items: stretch;
+}
+
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .topBar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
