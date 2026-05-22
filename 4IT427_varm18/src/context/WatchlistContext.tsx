@@ -1,8 +1,12 @@
 import { createContext, useContext, useState, useEffect, type ReactNode } from 'react';
+import { useQuery } from '@tanstack/react-query';
 import type { Film } from '../types/film.types';
 
 interface WatchlistContextValue {
   films: Film[];
+  isLoading: boolean;
+  isError: boolean;
+  refetch: () => void;
   addFilm: (film: Omit<Film, 'id' | 'watched'>) => void;
   removeFilm: (id: string) => void;
   toggleWatched: (id: string) => void;
@@ -11,22 +15,31 @@ interface WatchlistContextValue {
 
 const WatchlistContext = createContext<WatchlistContextValue | null>(null);
 
-const initialFilms: Film[] = [
-  { id: '1', title: "Vykoupení z věznice Shawshank", year: 1994, genre: "Drama", rating: 9, watched: true },
-  { id: '2', title: "Forrest Gump", year: 1994, genre: "Komedie", rating: 7, watched: false },
-  { id: '3', title: "Sedm", year: 1995, genre: "Krimi", rating: 8, watched: false },
-];
+async function fetchFilms(): Promise<Film[]> {
+  const res = await fetch('/films.json');
+  if (!res.ok) throw new Error('Nepodařilo se načíst filmy.');
+  return res.json();
+}
 
 export function WatchlistProvider({ children }: { children: ReactNode }) {
-  const [films, setFilms] = useState<Film[]>(initialFilms);
+  const { data, isLoading, isError, refetch } = useQuery({
+    queryKey: ['films'],
+    queryFn: fetchFilms,
+  });
+
+  const [films, setFilms] = useState<Film[]>([]);
+
+  useEffect(() => {
+    if (data) setFilms(data);
+  }, [data]);
 
   useEffect(() => {
     const watchedCount = films.filter(f => f.watched).length;
     document.title = `Watchlist (${watchedCount} / ${films.length} zhlédnuto)`;
   }, [films]);
 
-  function addFilm(data: Omit<Film, 'id' | 'watched'>) {
-    const newFilm: Film = { ...data, id: crypto.randomUUID(), watched: false };
+  function addFilm(filmData: Omit<Film, 'id' | 'watched'>) {
+    const newFilm: Film = { ...filmData, id: Date.now().toString(), watched: false };
     setFilms(prev => [...prev, newFilm]);
   }
 
@@ -43,7 +56,7 @@ export function WatchlistProvider({ children }: { children: ReactNode }) {
   }
 
   return (
-    <WatchlistContext.Provider value={{ films, addFilm, removeFilm, toggleWatched, markAllAsWatched }}>
+    <WatchlistContext.Provider value={{ films, isLoading, isError, refetch, addFilm, removeFilm, toggleWatched, markAllAsWatched }}>
       {children}
     </WatchlistContext.Provider>
   );

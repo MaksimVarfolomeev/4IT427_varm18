@@ -1,0 +1,8 @@
+[
+  { "id": "1", "title": "Vykoupení z věznice Shawshank", "year": 1994, "genre": "Drama", "rating": 9, "watched": true },
+  { "id": "2", "title": "Forrest Gump", "year": 1994, "genre": "Komedie", "rating": 8, "watched": false },
+  { "id": "3", "title": "Sedm", "year": 1995, "genre": "Krimi", "rating": 8, "watched": false },
+  { "id": "4", "title": "Matrix", "year": 1999, "genre": "Sci-Fi", "rating": 9, "watched": true },
+  { "id": "5", "title": "Interstellar", "year": 2014, "genre": "Sci-Fi", "rating": 9, "watched": false },
+  { "id": "6", "title": "Parazit", "year": 2019, "genre": "Thriller", "rating": 9, "watched": true }
+]

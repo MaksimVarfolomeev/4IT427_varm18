@@ -61,3 +61,35 @@
     align-items: flex-start;
   }
 }
+
+.state {
+  padding: 48px 0;
+  font-size: 1rem;
+  color: var(--text-muted);
+}
+
+.errorMsg {
+  color: #e53935;
+  font-size: 0.95rem;
+  margin-bottom: 16px;
+}
+
+.retryBtn {
+  background: transparent;
+  border: 1.5px solid #444;
+  color: var(--text-muted);
+  font-family: var(--font);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: border-color 0.18s, color 0.18s;
+}
+
+.retryBtn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}

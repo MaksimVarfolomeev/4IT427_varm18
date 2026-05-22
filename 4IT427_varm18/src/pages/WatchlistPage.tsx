@@ -3,8 +3,21 @@ import FilmCard from '../components/FilmCard';
 import styles from './WatchlistPage.module.css';
 
 function WatchlistPage() {
-  const { films, toggleWatched, removeFilm, markAllAsWatched } = useWatchlist();
+  const { films, isLoading, isError, refetch, toggleWatched, removeFilm, markAllAsWatched } = useWatchlist();
   const watchedCount = films.filter(f => f.watched).length;
+
+  if (isLoading) {
+    return <div className={styles.state}>Načítám…</div>;
+  }
+
+  if (isError) {
+    return (
+      <div className={styles.state}>
+        <p className={styles.errorMsg}>Nepodařilo se načíst filmy.</p>
+        <button className={styles.retryBtn} onClick={() => refetch()}>Zkusit znovu</button>
+      </div>
+    );
+  }
 
   return (
     <div className={styles.wrapper}>
